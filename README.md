@@ -204,6 +204,46 @@ Let's say you've made changes to the `src/script.js` file to improve the YouTube
 
 By following this workflow, you can effectively contribute to the Weblist project and keep the codebase organized. Happy coding!
 
+## 🚀 Deploying Your Weblist Widget with GitHub Pages
+
+GitHub Pages is a fantastic service for hosting static websites directly from your GitHub repository. Here's how to deploy your Weblist widget using GitHub Pages:
+
+### ⚙️ Step-by-Step Deployment Guide
+
+1. **Ensure Your Code is on GitHub:** First, make sure all your Weblist project files (including `index.html`, CSS, JavaScript, and the `assets` folder) are committed to your GitHub repository (e.g., `https://github.com/YOUR_USERNAME/weblist`). If you haven't done this yet, follow the steps in the "Committing Your Changes" section of the README.
+2. **Navigate to Your Repository Settings:** On your GitHub repository page for Weblist, click on the **"Settings"** tab (usually located towards the right side of the menu bar, next to "Code", "Issues", "Pull requests", etc.).
+3. **Scroll Down to the "GitHub Pages" Section:** On the Settings page, scroll down until you find the section labeled  **"GitHub Pages"** .
+4. **Choose Your Source Branch:** Under the "Source" heading, you'll see a dropdown menu that likely says "None". Click on this dropdown and select the branch you want GitHub Pages to build your site from.
+
+   * **Common Choice: `main` Branch:** If your main project files (especially `index.html`) are in the root of your `main` branch, select `main`.
+   * **`gh-pages` Branch:** Alternatively, you can choose to deploy from a dedicated `gh-pages` branch. If you select this, you'll need to ensure your website files are in the root of this branch.
+
+   For a simple project like Weblist with `index.html` in the root, deploying from the `main` branch is usually the easiest option.
+5. **Select the Folder (if applicable):** After selecting your branch, another dropdown might appear labeled "(root)" or allow you to select a folder. If your `index.html` file is in the root of your chosen branch, leave this as "(root)". If your website files are in a specific folder (though for Weblist, they should be in the root or the `src` folder which is a level down from the root), you would select that folder.
+6. **Click "Save":** Once you've selected your source branch (and optionally the folder), click the **"Save"** button.
+7. **Wait for Deployment:** GitHub Pages will now start building and deploying your website. This process might take a few minutes. You'll see a notification at the top of the page indicating the status.
+8. **Find Your Deployed Website URL:** Once the deployment is complete, the "GitHub Pages" section in your repository settings will update with the URL of your live website. It will typically be in the format:
+
+   ```
+   Your site is live at https://YOUR_USERNAME.github.io/weblist/
+   ```
+
+   Replace `YOUR_USERNAME` with your GitHub username and `weblist` with the name of your repository.
+9. **Access Your Weblist Widget:** Open the generated URL in your web browser to see your live Weblist widget. It should now be fetching data from YouTube (if you've correctly set up your API key) and displaying the placeholder for Spotify.
+
+### 🛠️ Troubleshooting Common Issues
+
+* **"Page build failed" error:** Check the "GitHub Pages" section in your repository settings for more details about the error. Common causes include issues with your HTML, CSS, or JavaScript files.
+* **Website not updating after changes:** Make sure you have committed and pushed your latest changes to the branch you selected for GitHub Pages. It might take a few minutes for the changes to reflect on the live site. You might need to clear your browser's cache as well.
+* **Incorrect file paths:** Double-check the paths to your CSS (`../assets/styles.css`) and JavaScript (`./script.js`) files in your `index.html` to ensure they are correct relative to the location of `index.html` in your repository.
+* **Browser Developer Tools:** Use your browser's developer tools (usually opened by pressing F12) to inspect the console for any JavaScript errors or network requests that might be failing (especially API calls).
+
+### 📝 Important Notes
+
+* GitHub Pages is designed for static websites. Since Weblist primarily uses client-side JavaScript to fetch data, it fits this model.
+* **API Keys:** Remember that your `credentials.json` file containing API keys should **not** be publicly accessible in your repository. Ensure it's in your `.gitignore`. The JavaScript code in `script.js` will attempt to fetch this file client-side, which is generally okay for public API keys (like YouTube's, with referrer restrictions), but be cautious with sensitive credentials if you were to implement a more secure Spotify integration. For more secure handling of API keys, a backend server is often recommended.
+* **Deployment Time:** It might take a few minutes for your site to deploy after you click "Save" in the GitHub Pages settings.
+
 ## Contribution
 
 See `CONTRIBUTING.md` for guidelines.
@@ -211,5 +251,3 @@ See `CONTRIBUTING.md` for guidelines.
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
-#   w e b l i s t  
- 
